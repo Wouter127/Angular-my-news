@@ -8,6 +8,8 @@ import { ArticleCommentComponent } from './article-comment/article-comment.compo
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
+import { ContactComponent } from './contact/contact.component';
+import { ArticleService } from './article.service';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,14 @@ import { MenuComponent } from './menu/menu.component';
     ArticleCommentComponent,
     CommentListComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
