@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { ContactComponent } from './contact/contact.component';
 import { ArticleService } from './article.service';
+import { LatestNewsComponent } from './latest-news/latest-news.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ArticleService } from './article.service';
     HomeComponent,
     MenuComponent,
     ContactComponent,
+    LatestNewsComponent,
+    ArticleDetailComponent,
   ],
   imports: [
     BrowserModule,

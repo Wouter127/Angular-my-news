@@ -1,15 +1,26 @@
-<article>
+<!-- ignoreEditor zie article.component.ts-->
+<article *ngIf="ignoreEditor()"> 
+<!-- <article *ngIf="isPublishedWithinThisWeek()"> -->
     <h1>{{article.title}}</h1> <!-- {{ Interpolation }} -->
     <h4>{{article.subtitle}}</h4>
     <figure>
-        <img src="{{article.imageUrl}}"
-            alt="{{article.imageCaption}}">
+        <img src="{{article.imageUrl}}" alt="{{article.imageCaption}}">
         <figcaption>{{article.imageCaption}}</figcaption>
     </figure>
-    <p>
+    <p *ngIf="!isDetail">
         {{article.content}}
+    </p>
+    <p *ngIf="isDetail">
+        {{article.content}}
+    </p>
+    <p>
+        <button (click)="detail(article.id)">Read more</button>
     </p>
     <footer>
         <p>Author: {{article.author}}, Published: {{article.publishDate}}</p>
+        <p *ngIf="article.editor !== '' ; else noEditor">Editor: {{article.editor}}</p>
+        <ng-template #noEditor>
+            Editor: No editor found
+        </ng-template>
     </footer>
 </article>

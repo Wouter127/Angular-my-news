@@ -1,17 +1,14 @@
+import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler/src/core';
 import { Injectable } from '@angular/core';
 import { Article } from './article';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class ArticleService {
+  private articles: Article[] = [];
 
-  constructor() { }
-
-  getArticles(): Article[] {
-    let articles: Article[] = [];
-
+  constructor() {
     let article1: Article = {
       id: 1,
       title: "Title article",
@@ -23,7 +20,9 @@ export class ArticleService {
       dolores? Cum tempore, mollitia provident placeat fugit earum, sint, quae iusto optio ea officiis consectetur sit
       necessitatibus itaque explicabo?`,
       author: "Michaël Cloots",
-      publishDate: "28/11/2020"
+      publishDate: "28/11/2020",
+      editor: ""
+
     };
 
     let article2: Article = {
@@ -37,12 +36,22 @@ export class ArticleService {
       dolores? Cum tempore, mollitia provident placeat fugit earum, sint, quae iusto optio ea officiis consectetur sit
       necessitatibus itaque explicabo?`,
       author: "Florian Smeyers",
-      publishDate: "30/11/2020"
+      publishDate: "30/11/2020",
+      editor:""
+
     };
 
-    articles.push(article1);
-    articles.push(article2);
+    this.articles.push(article1);
+    this.articles.push(article2);
 
-    return articles;
   }
+
+  getArticles(): Article[] {
+    return this.articles;
+  }
+
+  getArticleById(id: number) : Article | null {
+    return this.articles.find(a=>a.id === id) ?? null;
+  }
+
 }
