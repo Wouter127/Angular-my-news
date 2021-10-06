@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ArticleService } from './article.service';
 import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ShortenContentPipe } from './shorten-content.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
     ContactComponent,
     LatestNewsComponent,
     ArticleDetailComponent,
+    ShortenContentPipe,
   ],
   imports: [
     BrowserModule,

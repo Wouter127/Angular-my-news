@@ -1,5 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Article } from '../article';
 
 @Component({
@@ -10,6 +11,7 @@ import { Article } from '../article';
 export class ArticleComponent implements OnInit {
   @Input() article: Article = { id: 0, title: "", subtitle: "", imageUrl: "", imageCaption: "", content: "", author: "", publishDate: "", editor: "" };
   @Input() isDetail: boolean = false;
+  @Input() route: string = '';
   
   constructor(private router: Router) { }
 
@@ -34,6 +36,10 @@ export class ArticleComponent implements OnInit {
 
   detail(id: number) {
     this.router.navigate(['/article', id]);
+  }
+
+  backRoute(){
+    this.router.navigate([this.route])
   }
 
 }

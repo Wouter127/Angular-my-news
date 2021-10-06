@@ -8,13 +8,16 @@
         <figcaption>{{article.imageCaption}}</figcaption>
     </figure>
     <p *ngIf="!isDetail">
-        {{article.content}}
+        {{article.content | shortenContent : 250}}
     </p>
     <p *ngIf="isDetail">
         {{article.content}}
     </p>
     <p>
-        <button (click)="detail(article.id)">Read more</button>
+        <button (click)="detail(article.id)" *ngIf="!isDetail">Read more</button>
+    </p>
+    <p>
+        <button (click)="backRoute()" *ngIf="isDetail">Go back</button>
     </p>
     <footer>
         <p>Author: {{article.author}}, Published: {{article.publishDate}}</p>
