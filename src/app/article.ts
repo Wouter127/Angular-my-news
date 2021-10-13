@@ -7,5 +7,4 @@ export interface Article {
     content: string;
     author: string;
     publishDate: string;
-    editor: string;
 }

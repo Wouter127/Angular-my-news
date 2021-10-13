@@ -9,17 +9,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./article-detail.component.scss']
 })
 export class ArticleDetailComponent implements OnInit {
-  article: Article = { id: 0, title: "", subtitle: "", imageUrl: "", imageCaption: "", content: "", author: "", publishDate: "", editor: "" };
+  article: Article = { id: 0, title: "", subtitle: "", imageUrl: "", imageCaption: "", content: "", author: "", publishDate: "" };
 
   constructor(private articleService: ArticleService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const articleId = this.route.snapshot.paramMap.get('id');
+    console.log(this.route.snapshot.paramMap.get('test'));
     if (articleId != null) {
-      let articleTemp = this.articleService.getArticleById(+articleId) ?? null;
-      if(articleTemp != null) {
-        this.article = articleTemp;
-      }
+      this.articleService.getArticleById(+articleId).subscribe(result => this.article = result);
     }
   }
 }

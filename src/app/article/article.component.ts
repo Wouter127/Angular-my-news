@@ -9,17 +9,13 @@ import { Article } from '../article';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  @Input() article: Article = { id: 0, title: "", subtitle: "", imageUrl: "", imageCaption: "", content: "", author: "", publishDate: "", editor: "" };
+  @Input() article: Article = { id: 0, title: "", subtitle: "", imageUrl: "", imageCaption: "", content: "", author: "", publishDate: "" };
   @Input() isDetail: boolean = false;
   @Input() route: string = '';
   
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  ignoreEditor(): boolean {
-    return this.article.editor !== "editor x"
   }
 
   isPublishedWithinThisWeek(): boolean {
@@ -39,7 +35,7 @@ export class ArticleComponent implements OnInit {
   }
 
   backRoute(){
-    this.router.navigate([this.route])
+    this.router.navigate([this.route]);
   }
 
 }

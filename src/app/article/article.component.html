@@ -1,10 +1,10 @@
-<!-- ignoreEditor zie article.component.ts-->
-<article *ngIf="ignoreEditor()"> 
+
+<article> 
 <!-- <article *ngIf="isPublishedWithinThisWeek()"> -->
     <h1>{{article.title}}</h1> <!-- {{ Interpolation }} -->
     <h4>{{article.subtitle}}</h4>
     <figure>
-        <img src="{{article.imageUrl}}" alt="{{article.imageCaption}}">
+        <img src="{{article.imageUrl}}" alt="{{article.imageCaption}}" >
         <figcaption>{{article.imageCaption}}</figcaption>
     </figure>
     <p *ngIf="!isDetail">
@@ -18,12 +18,12 @@
     </p>
     <p>
         <button (click)="backRoute()" *ngIf="isDetail">Go back</button>
+        <button *ngIf="isDetail" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseArticle" aria-expanded="false" aria-controls="collapseArticle">
+            Button with data-target
+          </button>
     </p>
+    
     <footer>
         <p>Author: {{article.author}}, Published: {{article.publishDate}}</p>
-        <p *ngIf="article.editor !== '' ; else noEditor">Editor: {{article.editor}}</p>
-        <ng-template #noEditor>
-            Editor: No editor found
-        </ng-template>
     </footer>
 </article>

@@ -13,6 +13,8 @@ import { ArticleService } from './article.service';
 import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { ShortenContentPipe } from './shorten-content.pipe';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ShortenContentPipe } from './shorten-content.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]
