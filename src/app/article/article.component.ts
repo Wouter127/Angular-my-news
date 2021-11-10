@@ -1,7 +1,8 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Article } from '../article';
+import { Article } from './article';
+
 
 @Component({
   selector: 'app-article',
@@ -9,7 +10,7 @@ import { Article } from '../article';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  @Input() article: Article = { id: 0, title: "", subtitle: "", imageUrl: "", imageCaption: "", content: "", author: "", publishDate: "" };
+  @Input() article: Article = { id: 0, title: "", subtitle: "", imageUrl: "", imageCaption: "", content: "", author: "", publishDate: "", categoryId: 0, statusId: 0 };
   @Input() isDetail: boolean = false;
   @Input() route: string = '';
   
